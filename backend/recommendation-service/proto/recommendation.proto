@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package recommendation;
+
+service RecommendationService {
+  rpc RecommendBuild(RecommendBuildRequest) returns (RecommendBuildResponse);
+}
+
+message RecommendBuildRequest {
+  float budget = 1;
+  repeated int32 selected_component_ids = 2;
+}
+
+message RecommendBuildResponse {
+  repeated Component components = 1;
+}
+
+message Component {
+  int32 id = 1;
+  string name = 2;
+  string category = 3;
+  float price = 4;
+}

@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: component_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - pc-builder-network
+
+  component-service:
+    build: ./backend/component-service
+    ports:
+      - "50051:50051"
+    environment:
+      - PORT=50051
+    depends_on:
+      - postgres
+    networks:
+      - pc-builder-network
+    
+  recommendation-service:
+    build: ./backend/recommendation-service
+    ports:
+      - "50052:50052"
+    environment:
+      - PORT=50052
+    networks:
+      - pc-builder-network
+
+  pricing-inventory-service:
+    build: ./backend/pricing-inventory-service
+    ports:
+      - "50053:50053"
+    environment:
+      - PORT=50053
+    networks:
+      - pc-builder-network
+
+  # Other services...
+
+volumes:
+  postgres-data:
+
+networks:
+  pc-builder-network:

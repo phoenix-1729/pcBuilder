@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package component;
+
+service ComponentService {
+  rpc GetComponents(GetComponentsRequest) returns (GetComponentsResponse);
+  rpc CheckCompatibility(CheckCompatibilityRequest) returns (CheckCompatibilityResponse);
+}
+
+message GetComponentsRequest {
+  float budget = 1;
+}
+
+message GetComponentsResponse {
+  repeated Component components = 1;
+}
+
+message Component {
+  int32 id = 1;
+  string name = 2;
+  string category = 3;
+  float price = 4;
+  string compatibility = 5;
+}
+
+message CheckCompatibilityRequest {
+  repeated int32 component_ids = 1;
+}
+
+message CheckCompatibilityResponse {
+  bool is_compatible = 1;
+  string message = 2;
+}

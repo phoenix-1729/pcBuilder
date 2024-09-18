@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package gateway;
+
+service APIGateway {
+    rpc BuildPC(BuildPCRequest) returns (BuildPCResponse);
+}
+
+message BuildPCRequest {
+    float budget = 1;
+}
+
+message BuildPCResponse {
+    repeated string components = 1;
+}

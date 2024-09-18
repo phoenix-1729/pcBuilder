@@ -1,0 +1,54 @@
+# General
+.DS_Store
+*.log
+
+# Node.js related
+frontend/pc-builder-frontend/node_modules/
+frontend/pc-builder-frontend/npm-debug.log*
+frontend/pc-builder-frontend/yarn-error.log*
+frontend/pc-builder-frontend/package-lock.json
+frontend/pc-builder-frontend/yarn.lock
+
+# Python related
+*.pyc
+*.pyo
+*.pyd
+*.env
+
+# Golang related
+*.exe
+*.log
+*.test
+*.out
+*.mod
+*.sum
+
+# Build output directories
+frontend/pc-builder-frontend/dist/
+frontend/pc-builder-frontend/build/
+
+# Bazel build files
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+bazel-*/**
+*.runfiles/
+*.log
+*.cache
+
+# Docker related
+*.env
+docker-compose.override.yml
+
+# IDE and editor folders
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Miscellaneous
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
